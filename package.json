@@ -4,6 +4,7 @@
   "description": "this is a placement cell project given by coding ninja",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,9 +18,12 @@
   },
   "homepage": "https://github.com/Aninda2000/PlacementCell#readme",
   "dependencies": {
+    "body": "^5.1.0",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
-    "node": "^18.5.0"
+    "mongoose": "^6.4.4",
+    "node": "^18.5.0",
+    "nodemon": "^2.0.19"
   }
 }

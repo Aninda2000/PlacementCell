@@ -1,13 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placement Cell | Home</title>
-</head>
-<body>
-    <h1> home page</h1>
+<div class="container mt-4">
+<div class="row g-5">
+    <div class="col-md-6 col-lg-6 order-md-last ">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-black">Student List</span>
+      </h4>
+      <table class="table table-bordered  mb-3">
+        
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>College</th>
+            <th>Status</th>
+            <th>Batch</th>
+            <th>DSA</th>
+            <th>Web</th>
+            <th>React</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (student of students) { %>
+            <tr>
+            <td><%=  student.s_name %></td>
+            <td><%=  student.s_email %></td>
+            <td><%=  student.s_college %></td>
+            <td><%=  student.s_placement_status %></td>
+            <td><%=  student.s_batchName %></td>
+            <td><%=  student.dsa_score %></td>
+            <td><%=  student.web_score %></td>
+            <td><%=  student.react_score %></td>
+            </tr>
+            
+          <% } %>
+      </tbody>
+
+      </table>
+
+    </div>
     
-</body>
-</html>
+    <div class="col-md-6 col-lg-6 ">
+      <h4 class="mb-3">New Student Form</h4>
+      <form class="needs-validation"  method="post" action="../student/create">
+        <div class="row g-3">
+          <div class="col-12">
+            <label for="name" class="form-label">Student name</label>
+            <input type="text" class="form-control" id="name"  name="s_name" required>
+          </div>
+
+          <div class="col-12">
+            <label for="collegeName" class="form-label">College Name</label>
+            <input type="text" class="form-control" id="collegeName" name="s_college" required>
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" name="s_email" required>
+          </div>
+          <div class="col-md-6">
+            <label for="placementStatus" class="form-label">Placement Status</label>
+            <input type="text" class="form-control" id="placementStatus" placeholder="placed/not placed" name="s_placement_status" required>
+          </div>
+          <div class="col-md-6">
+            <label for="batchName" class="form-label">Batch Name</label>
+            <input type="text" class="form-control" id="batchName" name="s_batchName" required>
+          </div>
+
+          <div class="col-md-4">
+            <label for="web" class="form-label">Web Score</label>
+            <input type="number" class="form-control" id="web"  name="web_score" required>
+          </div>
+
+          <div class="col-md-4">
+            <label for="dsa" class="form-label">DSA Score</label>
+            <input type="number" class="form-control" id="dsa"  name="dsa_score" required>
+            
+          </div>
+
+          <div class="col-md-4">
+            <label for="react" class="form-label">React Score</label>
+            <input type="number" class="form-control" id="react" name="react_score" required>
+          </div>
+        </div>
+
+        <hr class="my-4">
+
+        <button class="w-100 btn btn-primary btn-lg" type="submit">Add New Student</button>
+      </form>
+    </div>
+  </div>
+</div>
