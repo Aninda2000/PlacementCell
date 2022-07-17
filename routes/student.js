@@ -7,4 +7,6 @@ router.get('/placement',studentController.placementPage);
 
 router.post('/create-interview',studentController.createInterview);
 
+router.get('/download',studentController.download);
+
 module.exports=router;
