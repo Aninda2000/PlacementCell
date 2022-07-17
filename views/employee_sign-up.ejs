@@ -6,20 +6,24 @@
           <h2 class="fw-bold mb-0">Sign up for Employee</h2>
         </div>
         <div class="modal-body p-5 pt-0">
-          <form class="">
+          <form class="" action="../employee/create" method="post">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control rounded-3" id="userName" placeholder="User Name">
+                <input type="text" class="form-control rounded-3" id="userName" placeholder="User Name" name="name" required>
                 <label for="userName">Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+              <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="email" required>
               <label for="floatingInput">Email address</label>
             </div>
             
             <div class="form-floating mb-3">
-                <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password" class="form-control rounded-3" id="password" placeholder="Password"name="password" required>
+                <label for="password">Password</label>
             </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-3" id="confirmPassword" placeholder="Password" name="confirmPassword" required>
+              <label for="confirmPassword">Confirm Password</label>
+          </div>
             <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up </button>
             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small> 
           </form>
