@@ -6,25 +6,30 @@ module.exports.createStudent=function(req,res){
     student.create(req.body);
     return res.redirect('back');
 }
-module.exports.placementPage= function(req,res){
+module.exports.placementPage= async function(req,res){
+    let students=await student.find({});
     interviews.find({},function(err,interviews){
         if(err){
             console.log(err);
             return;
         }
         return res.render('placementCell',{
-            interviews:interviews
+            interviews:interviews,
+            students : students,
+            isAuthenticate:true,
+            email: req.cookies.user_Id
         });
     });
 }
 
 module.exports.createInterview=function(req,res){
+
     interviews.create(req.body);
     return res.redirect('back');
 }
 
-module.exports.download=function(req,res){
-    interviews.find({},function(err, docs){
+module.exports.download=async function(req,res){
+    interviews.find({}, async function(err, docs){
         if(err){
             console.log("error while downloading", err);
             return;
@@ -36,9 +41,16 @@ module.exports.download=function(req,res){
             temp["Student Name"]=i.s_name;
             temp["Status"]=i.status;
             temp["Date"]=i.date;
+            //find the student
+            let st=await student.findOne({s_name:i.s_name});
+            temp["College Name"]=st.s_college;
+            temp["Dsa Score"] =st.dsa_score;
+            temp["Web Score"] =st.web_score;
+            temp["React Score"]=st.react_score;
+            temp["Batch"]=st.s_batchName;
             allInterview.push(temp);
         }
-        const csvheader=["Company Name","Student Name","Status","Date"];
+        const csvheader=["Company Name","Student Name","Status","Date","College Name","Dsa Score","Web Score","React Score","Batch"];
         const parser=new Parser({csvheader});
         const csv=parser.parse(allInterview);
 

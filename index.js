@@ -4,9 +4,15 @@ const port=8000;
 //database connection
 const db= require('./config/mongoose');
 const expressLayouts = require('express-ejs-layouts');
+const cookieParser= require('cookie-parser');
+
+
 
 //use the body
 app.use(express.urlencoded({extended:true}));
+
+//use the cookieparser
+app.use(cookieParser());
 
 //setup for layouts
 app.use(expressLayouts);

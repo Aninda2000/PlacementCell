@@ -44,13 +44,29 @@
               </div>
     
               <div class="col-12">
+                
                 <label for="s-name" class="form-label">Student Name</label>
-                <input type="text" class="form-control" id="s-name" name="s_name" required>
+                
+                <select class="form-select" aria-label="Default select example" id="s-name" name="s_name" required>
+                  <% for(student of students) { %> 
+                    <option value="<%= student.s_name %>">
+                      <%= student.s_name %>
+                    </option>
+                  <% } %>
+                  
+                </select>
               </div>
     
               <div class="col-12">
                 <label for="status" class="form-label">current Status</label>
-                <input type="text" class="form-control" id="status"  name="status" required>
+                
+                <select class="form-select" aria-label="Default select example" id="status" name="status" required>
+                  <option value="sortlisted">sortlisted</option>
+                  <option value="round 1">round 1</option>
+                  <option value="round 2">round 2</option>
+                  <option value="rejected">rejected</option>
+                  <option value="placed">placed</option>
+                </select>
               </div>
               <div class="col-12">
                 <label for="date" class="form-label">Date</label>

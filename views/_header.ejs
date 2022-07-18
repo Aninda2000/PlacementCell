@@ -9,9 +9,15 @@
           <li><a href="../" class="nav-link px-2 text-white">Home</a></li>
           <li><a href="../student/placement" class="nav-link px-2 text-white">Placement Cell</a></li>
         </ul>
+
         <div class="text-end">
-          <a  href="../employee/sign-in" class="btn btn-outline-light me-2">Login</a>
-          <a  href="../employee/sign-up" class="btn btn-warning">Sign-up</a>
+          <% if (!isAuthenticate){ %>
+            <a  href="../employee/sign-in" class="btn btn-outline-light me-2">Login</a>
+            <a  href="../employee/sign-up" class="btn btn-warning">Sign-up</a>
+          <% } else { %> 
+            <span class="me-2"> <%= email %> </span>
+            <a  href="../employee/log-out" class="btn btn-warning">Log Out</a>
+          <% } %>
         </div>
       </div>
     </div>
