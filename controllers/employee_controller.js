@@ -15,8 +15,8 @@ module.exports.signUp= function(req,res){
 
 module.exports.create=function(req,res){
     employee.findOne({email:req.body.email},function(err,docs){
-        if(err){console.log("error while creating employee",err);return;}
-        if(!docs){
+        if(err){console.log("error while creating employee",err);return ;}
+        if(docs){
             return res.redirect('../employee/sign-in');
         }
 
@@ -46,7 +46,6 @@ module.exports.createSession =function(req,res){
             return res.redirect('back');
         }
         res.cookie("user_Id" ,employee.email);
-        console.log("session create 2");
         return res.redirect('../');
     });
 }
