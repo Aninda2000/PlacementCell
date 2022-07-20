@@ -17,5 +17,5 @@ const InterviewSchema=new mongoose.Schema({
         required:true
     }
 });
-const Interview =mongoose.model('Interview',InterviewSchema);
+const Interview =mongoose.model('interviews',InterviewSchema);
 module.exports=Interview;
