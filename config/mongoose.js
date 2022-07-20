@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/Placement-Cell');
+mongoose.connect('mongodb://0.0.0.0:27017/Placement-Cell');
 
 const db = mongoose.connection;
 
